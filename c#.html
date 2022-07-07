@@ -1,0 +1,961 @@
+<!DOCTYPE html><html><head>
+      <title>c#</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\MONSTER\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="c-notlar%C4%B1">C# Notlar&#x131;</h1>
+
+<h2 class="mume-header" id="giri%C5%9F">Giri&#x15F;</h2>
+
+<ul>
+<li>Konsol &#xC7;&#x131;kt&#x131;s&#x131; Almak</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.WriteLine(&quot;Hello World!&quot;);
+Console.Write(&quot;Hello World!&quot;);
+</code></pre><ul>
+<li>Konsol &#xE7;&#x131;kt&#x131;s&#x131; al&#x131;rken de&#x11F;i&#x15F;kenler kullan&#x131;lacaksa &#x15F;u &#x15F;ekilde kolayl&#x131;k sa&#x11F;lanabilir:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.WriteLine($&quot;Sonu&#xE7;: {num1} + {num2 = }&quot; + sonuc);
+</code></pre><p><em>c&apos;ye bas&#x131;p 2 kere tab&apos;a basarsan otomatik <strong>WriteLine</strong> A&#xE7;ar</em></p>
+<ul>
+<li>Yorum Sat&#x131;r&#x131;</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>//Bu bir yorum sat&#x131;r&#x131;d&#x131;r
+/*Bu
+ *bir
+ *yorum
+ *paragraf&#x131;d&#x131;r
+ */
+</code></pre><ul>
+<li>Bo&#x15F;luk B&#x131;rakmak</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>\b backspace
+\n yeni sat&#x131;r
+\t tab
+</code></pre><ul>
+<li>Alttaki &#xC7;er&#xE7;&#xF6;p&#xFC; Gizlemek<br>
+<em>Kodun sonuna:</em></li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.ReadKey();
+</code></pre><h2 class="mume-header" id="de%C4%9Fi%C5%9Fkenler">De&#x11F;i&#x15F;kenler</h2>
+
+<ul>
+<li>De&#x11F;i&#x15F;ken Tipleri</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>char x = &quot;a&quot;;
+string y = &quot;Kuti&quot;;
+bool z = true;
+int f = 3;
+</code></pre><ul>
+<li>De&#x11F;i&#x15F;kenler de&#x11F;er atanmadan da tan&#x131;mlanabilir (declaration)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>int x;
+string y;
+bool z;
+</code></pre><ul>
+<li>Say&#x131; depolarken; int, sadece tam say&#x131;lar&#x131; tutar; double, ondal&#x131;kl&#x131; say&#x131;lar&#x131; da tutar.</li>
+<li><em>Char</em> tek karakter tutabilir.</li>
+<li>De&#x11F;i&#x15F;kenlerin daha sonra de&#x11F;i&#x15F;tirilmesini istemiyorsak <em>constant</em> olarak tan&#x131;mlanabilir. Bunu <em>const</em> ile sa&#x11F;layabilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>const double pi = 3.141;
+</code></pre><ul>
+<li>Bir data tipinin ba&#x15F;ka bir data&apos;ya d&#xF6;n&#xFC;&#x15F;t&#xFC;r&#xFC;lmesi casting kullan&#x131;larak yap&#x131;labilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>double a = 3,14;
+int b = Convert.ToInt32(a);
+int c = Convert.ToString(a);
+int d = Convert.ToDouble(a);
+...
+</code></pre><ul>
+<li>Bir de&#x11F;i&#x15F;kenin data tipinin ne oldu&#x11F;unu bulmak i&#xE7;in <em>GetType()</em> fonksiyonu kullan&#x131;l&#x131;r. A&#x15F;a&#x11F;&#x131;daki fonksiyon b de&#x11F;i&#x15F;keninin tipini &#xE7;&#x131;kt&#x131; olarak verir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.WriteLine(b.GetType());
+</code></pre><ul>
+<li>Kullan&#x131;c&#x131;dan bilgi almak</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String isim = Console.ReadLine();
+</code></pre><h2 class="mume-header" id="matematiksel-i%CC%87%C5%9Flemler">Matematiksel &#x130;&#x15F;lemler</h2>
+
+<ul>
+<li>Bir de&#x11F;i&#x15F;keni 1 artt&#x131;rman&#x131;n 3 yolu:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>elma = elma + 1;
+elma += 1;
+elma++
+</code></pre><ul>
+<li>B&#xF6;lme i&#x15F;leminden kalan&#x131; veren fonksiyon: (elman&#x131;n 2&apos;ye b&#xF6;l&#xFC;m&#xFC;nden kalan&#x131; verir)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>int kalan = elma % 2;
+</code></pre><ul>
+<li>Math k&#xFC;t&#xFC;phanesi bir &#xE7;ok matematiksel i&#x15F;lem i&#xE7;in kullan&#x131;labilir.</li>
+<li>Bir say&#x131;n&#x131;n &#xFC;st&#xFC;n&#xFC; almak:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>double x = 3;
+double a = Math.Pow(x,2);
+</code></pre><p>&#xC7;&#x131;kt&#x131; olarak 3&apos;&#xFC;n karesi olan 9&apos;u al&#x131;r&#x131;z.</p>
+<ul>
+<li>Bir say&#x131;n&#x131;n karek&#xF6;k&#xFC;n&#xFC; almak:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>double x = 3;
+double b = Math.Sqrt(x);
+</code></pre><ul>
+<li>Bir say&#x131;n&#x131;n mutlak de&#x11F;erini almak:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>double x = -3;
+double c = Math.Abs(x);
+</code></pre><ul>
+<li>Bir say&#x131;y&#x131; yuvarlamak: (S&#x131;ras&#x131;yla &#xF6;nce en yak&#x131;n tam say&#x131;ya, sonra bir &#xFC;ste, son olarak bir alta yuvarlar)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>double x = 3,14:
+double d = Math.Round(x);
+double e = Math.Ceiling(x);
+double f = Math.Floor(x);
+</code></pre><ul>
+<li>2 say&#x131; aras&#x131;nda hangisinin daha b&#xFC;y&#xFC;k/k&#xFC;&#xE7;&#xFC;k oldu&#x11F;unu bulmak:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>double x = 4;
+double y = 5;
+double g = Math.Min(x,y);
+double h = Math.Max(x,y);
+</code></pre><ul>
+<li>Random say&#x131; olu&#x15F;turmak</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Random random = new Random();
+int rastgele = random.Next();
+</code></pre><p>E&#x11F;er s&#x131;n&#x131;r belirlenmezse bu fonksiyon integer&apos;&#x131;n s&#x131;n&#x131;r&#x131; kadar yani 2 milyar k&#xFC;s&#xFC;re kadar de&#x11F;er alabilir. S&#x131;n&#x131;r belirlemek i&#xE7;in:</p>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Random random = new Random();
+int rastgele = random.Next(1,7)
+</code></pre><p><strong>Bu bize 1 ile 6 ARASINDA bir say&#x131; verir</strong></p>
+<ul>
+<li>Ondal&#x131;kl&#x131; say&#x131; olu&#x15F;turmak istiyorsak:(<strong>0 ile 1 aras&#x131;nda</strong>)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Random random = new Random();
+double num = random.NextDouble();
+</code></pre><h2 class="mume-header" id="string-methodlar%C4%B1">String Methodlar&#x131;</h2>
+
+<ul>
+<li>String&apos;in t&#xFC;m harflerini b&#xFC;y&#xFC;tmek i&#xE7;in:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String fullName = &quot;Kutay &#x15E;ahin&quot;;
+fullName = fullName.ToUpper();
+</code></pre><ul>
+<li>String&apos;in t&#xFC;m harflerini k&#xFC;&#xE7;&#xFC;ltmek i&#xE7;in:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String fullName = &quot;Kutay &#x15E;ahin&quot;
+fullName = fullName.ToLower();
+</code></pre><ul>
+<li>Bir String&apos;deki t&#xFC;m x&apos;leri y&apos;lere &#xE7;evirmek:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>degistir = degistir.Replace(&quot;x&quot;,&quot;y&quot;);
+</code></pre><ul>
+<li>Insert methodu kullanarak bir String&apos;e istenilen karakter eklenebilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String userName = userName.Insert(0, &quot;Mr.&quot;);
+</code></pre><p><em>&#x130;smin &#xF6;n&#xFC;ne &quot;Mr.&quot; &#xF6;n ekinin gelmesini sa&#x11F;lar</em></p>
+<p><strong>Property&apos;ler kullan&#x131;l&#x131;rken parantez a&#xE7;&#x131;p kapat&#x131;lmaz. Parantez a&#xE7;&#x131;p kapatma olay&#x131; Methodlarda kullan&#x131;l&#x131;r</strong></p>
+<ul>
+<li>String&apos;in uzunlu&#x11F;unu bulmak:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>fullName.Length;
+</code></pre><ul>
+<li>Bir String&apos;i kullanarak yeni alt String&apos;ler olu&#x15F;turma: (<em>&#x130;lk de&#x11F;er b&#xF6;l&#xFC;nmenin yap&#x131;laca&#x11F;&#x131; index&apos;i, 2. de&#x11F;er o konumdan sonraki ka&#xE7; karakterin dahil edilece&#x11F;ini g&#xF6;sterir. &quot;Kutay &#x15E;ahin&quot; &#xF6;rne&#x11F;i i&#xE7;in ay&#x131;rmak istersek:</em>)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String firstName = fullName.Substring(0,5);
+String lastName = fullName.Substring(6,5);
+</code></pre><h2 class="mume-header" id="mant%C4%B1ksal-operat%C3%B6rler">Mant&#x131;ksal Operat&#xF6;rler</h2>
+
+<ul>
+<li>Ve</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>&amp;&amp;
+</code></pre><ul>
+<li>Veya</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>||
+</code></pre><h2 class="mume-header" id="if-while-for-ve-di%C4%9Fer-d%C3%B6ng%C3%BCler">If, While, For ve Di&#x11F;er D&#xF6;ng&#xFC;ler</h2>
+
+<ul>
+<li>If ifadesi, karar vermenin en basit formudur. &#x15E;art tan&#x131;mlar.</li>
+<li>&#xD6;rnek if modeli(<em>18 ya&#x15F; denetleme ko&#x15F;ulu:</em>)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>if (yas &gt;= 18){
+    Console.WriteLine(&quot;18&apos;den b&#xFC;y&#xFC;ks&#xFC;n&quot;)
+}
+else if(yas &lt; 0){
+    Console.WriteLine(&quot;Sen daha do&#x11F;mad&#x131;n&quot;)
+}
+else{
+    Console.WriteLine(&quot;18&apos;den k&#xFC;&#xE7;&#xFC;ks&#xFC;n&quot;)
+}
+</code></pre><p><em><strong>Bir If ifadesinin okunma s&#x131;ras&#x131; yukar&#x131;dan a&#x15F;a&#x11F;&#x131; do&#x11F;ru oldu&#x11F;u i&#xE7;in e&#x11F;er tan&#x131;mlanm&#x131;&#x15F; olan bir ko&#x15F;ul sa&#x11F;lan&#x131;rsa o parantezin i&#xE7;erisindeki i&#x15F;lemler yap&#x131;l&#x131;r ve If&apos;in kalan&#x131; okunmadan program kald&#x131;&#x11F;&#x131; yerden devam eder. Ko&#x15F;ullar bu unutulmadan belirlenmelidir.</strong></em></p>
+<ul>
+<li>E&#x15F;itlik ko&#x15F;ulunun sa&#x11F;lan&#x131;p sa&#x11F;lanamd&#x131;&#x11F;&#x131; kontrol edilirken e&#x15F;ittir 2 kere kullan&#x131;l&#x131;r. Aksi takdirde c# atama yapmaya &#xE7;al&#x131;&#x15F;t&#x131;&#x11F;&#x131;m&#x131;z&#x131; d&#xFC;&#x15F;&#xFC;n&#xFC;r.</li>
+<li>Switch-case baz&#x131; durumlarda if-else&apos;e g&#xF6;re daha verimlidir ve okumay&#x131; kolayla&#x15F;t&#x131;r&#x131;r. Birden fazla se&#xE7;enek oldu&#x11F;unda switch-case kullanmak daha mant&#x131;kl&#x131;d&#x131;r.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.writeline(&quot;Bud&#xFC;n g&#xFC;nlerden ne?&quot;);
+String gun = Console.ReadLine();
+
+switch (gun){
+    case &quot;pazartesi&quot;:
+        Console.WriteLine(&quot;Bug&#xFC;n pazartesi&quot;);
+        break;
+    case &quot;sal&#x131;&quot;:
+        Console.WriteLine(&quot;Bug&#xFC;n sal&#x131;&quot;);
+        break;
+    default:
+        Console.WriteLine(gun + &quot; bir g&#xFC;n de&#x11F;ildir.&quot;)
+        break;
+    ...
+}
+</code></pre><ul>
+<li>Switch-case&apos;lerde default durum kullan&#x131;larak ko&#x15F;ullar harici bir durum olu&#x15F;ursa ne olaca&#x11F;&#x131; tan&#x131;mlanabilir.</li>
+<li>While kullan&#x131;m&#x131;</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String isim = Console.ReadLine();
+
+while (isim == &quot;&quot;){
+    Console.WriteLine(&quot;&#x130;sminizi giriniz:&quot;);
+    isim = Console.ReadLine();
+}
+</code></pre><ul>
+<li>While d&#xF6;ng&#xFC;leri s&#x131;n&#x131;rs&#x131;z kere tekrar eden, for d&#xF6;ng&#xFC;leri s&#x131;n&#x131;rl&#x131; kere tekrar eden d&#xF6;ng&#xFC;lerdir.</li>
+<li>For kullan&#x131;rken parantez i&#xE7;inde s&#x131;ras&#x131;yla for <em>(saya&#xE7; indeksi; biti&#x15F; &#x15F;art&#x131;; indeks de&#x11F;i&#x15F;imi)</em> yaz&#x131;l&#x131;r.</li>
+<li>For kullan&#x131;m&#x131;</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>for (int i = 1; i &lt;= 10; i++){
+    Console.WriteLine(i);
+}
+</code></pre><ul>
+<li><strong>Nested Loop</strong>, i&#xE7; i&#xE7;e birden fazla d&#xF6;ng&#xFC;n&#xFC;n yer ald&#x131;&#x11F;&#x131; d&#xF6;ng&#xFC;lere verilen add&#x131;r. S&#x131;ralama problemlerinde &#xE7;ok&#xE7;a kullan&#x131;l&#x131;r.</li>
+<li><em><strong>User Input HER ZAMAN String&apos;dir. Dolay&#x131;s&#x131;yla i&#x15F;lemlerde kullanmak i&#xE7;in Convert.ToInt32() yap&#x131;lmal&#x131;d&#x131;r.</strong></em></li>
+<li>Nested Loop kullan&#x131;m&#x131;:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.Write(&quot;Ka&#xE7; sat&#x131;r olsun?&quot;);
+int satir = Convert.ToInt32(Console.ReadLine());
+
+Console.Write(&quot;Ka&#xE7; s&#xFC;tun olsun?&quot;);
+int sutun = Convert.ToInt32(Console.ReadLine());
+
+Console.Write(&quot;Hangi sembol kullan&#x131;ls&#x131;n?&quot;);
+String sembol = Console.Readline();
+
+for (int i = 0; i &lt; satir; i++){
+    for (int j = 0; j &lt; sutun; j++){
+        Console.Write(symbol);
+    }
+    Console.WriteLine();
+}
+</code></pre><ul>
+<li>Do-While d&#xF6;ng&#xFC;s&#xFC;nde Do ba&#x15F;a yaz&#x131;l&#x131;r, ilgili parantez 1 kere &#xE7;al&#x131;&#x15F;t&#x131;r&#x131;l&#x131;r, parantezin sonunda while ko&#x15F;ulunun sa&#x11F;lan&#x131;p sa&#x11F;lanmad&#x131;&#x11F;&#x131;na g&#xF6;re fonksiyon tekrar edilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>do{
+    i&#x15F;lemler
+    ...
+}while(Console.ReadLine().ToUpper() == &quot;Y&quot;);
+</code></pre><h2 class="mume-header" id="diziler">Diziler</h2>
+
+<ul>
+<li><strong>Dizi</strong>: birden fazla de&#x11F;er i&#xE7;erebilen de&#x11F;i&#x15F;ken. <em><strong>Boyutu sabittir.</strong></em></li>
+<li><em><strong>Her zaman 0. indexten ba&#x15F;lan&#x131;r.</strong></em> Dizinin birinci eleman&#x131; i=0&apos;d&#x131;r.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String[] arabalar = {&quot;BMW&quot;, &quot;Mercedes&quot;, &quot;Corvette&quot;};
+
+Console.WriteLine(arabalar[0]);
+</code></pre><ul>
+<li>Dizideki de&#x11F;erlerden biri de&#x11F;i&#x15F;tirilecekse index numaras&#x131;yla beraber de&#x11F;i&#x15F;tirilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>cars[0] = &quot;Tesla&quot;;
+</code></pre><ul>
+<li>Bir dizideki elemanlar&#x131; for d&#xF6;ng&#xFC;s&#xFC; ile yazd&#x131;rmak</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>for (int i = 0; i &lt; cars.Length; i++){
+    Console.WriteLine(cars[i]);
+}
+</code></pre><ul>
+<li>Bo&#x15F; dizi tan&#x131;mlamak: (<em>&#xF6;rnekte 3 boyutunda bir string dizisi tan&#x131;mlan&#x131;yor</em>)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String[] cars = new String[3];
+</code></pre><ul>
+<li>Foreach d&#xF6;ng&#xFC;s&#xFC;: Dizilerle i&#x15F;lem yaparken for d&#xF6;ng&#xFC;s&#xFC;ne g&#xF6;re daha pratiktir. For&apos;a g&#xF6;re daha az esnek.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String[] cars = {&quot;BMW&quot;,&quot;Mercedes&quot;,&quot;Ferrari&quot;};
+
+foreach (String car in cars){
+    Console.WriteLine.(car);
+}
+</code></pre><h2 class="mume-header" id="methodlar">Methodlar</h2>
+
+<ul>
+<li>Method: &#xC7;a&#x11F;r&#x131;ld&#x131;&#x11F;&#x131;nda bir kod b&#xF6;l&#xFC;m&#xFC;n&#xFC;n &#xE7;al&#x131;&#x15F;t&#x131;r&#x131;r. Ayn&#x131; kodu birden fazla kez yazmaya gerek kalmadan &#xE7;&#x131;kt&#x131; almay&#x131; sa&#x11F;lar. Methodu &#xE7;a&#x11F;&#x131;rma i&#x15F;lemine &quot;invoke&quot; denir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>static void sarkiSoyle(){
+    Console.WriteLine(&quot;&#x130;yi kido&#x11F;dun&quot;)
+    Console.WriteLine(&quot;Kutay Bey&quot;)
+}
+</code></pre><p><strong>Bu &#xF6;rnekte sarkiSoyle() methodu her &#xE7;a&#x11F;r&#x131;ld&#x131;&#x11F;&#x131;nda 2 sat&#x131;rl&#x131;k &#xE7;&#x131;kt&#x131;y&#x131; al&#x131;r&#x131;z.</strong></p>
+<ul>
+<li>
+<p>Main methodunda tan&#x131;mlanm&#x131;&#x15F; olan de&#x11F;i&#x15F;kenler tan&#x131;mlanan methodun i&#xE7;inden eri&#x15F;ilemez. Bir method invoke edilecekken argument belirterek methodun i&#xE7;ine g&#xF6;nderilecek de&#x11F;i&#x15F;kenler tan&#x131;mlan&#x131;r.</p>
+</li>
+<li>
+<p>Parametre: Method&apos;un invoke&apos;lanmas&#x131; i&#xE7;in gereken &#x15F;eyler</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>{
+String isim = Kutay;
+int yas = 22;
+sarkiSoyle(isim, yas);
+}
+
+static void sarkiSoyle(String dgCocugu, int yasi){
+    Console.WriteLine(&quot;&#x130;yi ki do&#x11F;dun &quot; + isim + yas);
+}
+</code></pre><ul>
+<li>E&#x11F;er methoddan &#xE7;&#x131;kt&#x131; al&#x131;nacaksa methodun sonuna <em><strong>return</strong></em> yaz&#x131;lmal&#x131; ve method tan&#x131;mlan&#x131;rken void olarak de&#x11F;il de hangi t&#xFC;rde &#xE7;&#x131;kt&#x131; al&#x131;nacaksa o t&#xFC;re uygun tan&#x131;mlanmal&#x131;. (<strong>&#xF6;rne&#x11F;in</strong>)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>static double Carpim(double x, double y){
+    double z = x* y;
+    return z;
+}
+</code></pre><ul>
+<li>ReadLine &#xE7;&#x131;kt&#x131;s&#x131; al&#x131;nan bilgiyi her zaman String olarak depolar. Say&#x131;sal de&#x11F;ere &#xE7;evirmek i&#xE7;in <em>Convert.ToDouble()</em> fonksiyonu kullan&#x131;lmal&#x131;d&#x131;r.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.WriteLine(&quot;1. say&#x131;y&#x131; giriniz:&quot;)
+x = Convert.ToDouble(Console.ReadLine());
+</code></pre><ul>
+<li>Method Overload: Methodlar ayn&#x131; ismi payla&#x15F;sa dahi farkl&#x131; parametreler kullanarak farkl&#x131; i&#x15F;lemler yapabilirler. Bir method ismi farkl&#x131; parametreler i&#xE7;eren methodlar tan&#x131;mlamak i&#xE7;in kullan&#x131;l&#x131;rsa buna <em>Method Overloading</em> denir.</li>
+<li>Ka&#xE7; adet data giri&#x15F;inin ger&#xE7;ekle&#x15F;ece&#x11F;inin bilinmedi&#x11F;i durumlarda <em><strong>params</strong></em> keyword&apos;&#xFC;nden yararlan&#x131;l&#x131;r. Bir dizi parametre alabilir. Tek boyutlu bir dizidir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>static double Sepet(params double[] fiyatlar){
+    double toplam = 0;
+    foreach(double fiyat in fiyatlar){
+        toplam += fiyat;
+    }
+}
+</code></pre><h2 class="mume-header" id="exception-handling">Exception Handling</h2>
+
+<ul>
+<li>Program&#x131;n &#xE7;al&#x131;&#x15F;mas&#x131; esnas&#x131;nda olu&#x15F;abilecek hatalarda program&#x131;n sonlanmas&#x131; yerine hata t&#xFC;r&#xFC;ne g&#xF6;re geribildirim verebilmemizi sa&#x11F;layan fonksiyonlar.</li>
+<li>Ne bunlar?<br>
+<em>try:</em> tehlikeli oalbilecek kodu dener<br>
+<em>catch:</em> hatalar olu&#x15F;tu&#x11F;u anda onlar&#x131; yakalar ve ilgili durumla ba&#x15F;a &#xE7;&#x131;kar<br>
+<em>finally:</em> hata olmasa dahi her zaman &#xE7;al&#x131;&#x15F;&#x131;r</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>try{
+    *riskli &#x15F;eyler*
+}
+catch (FormatException e){
+    Console.WriteLine(&quot;Sadece say&#x131; gir!&quot;);
+}
+catch (DivideByZeroException e){
+    Console.WriteLine(&quot;Say&#x131; 0&apos;a b&#xF6;l&#xFC;n&#xFC;r m&#xFC; mal?&quot;);
+}
+catch (Exception e){
+    Console.WriteLine(&quot;Bir &#x15F;eyler yanl&#x131;&#x15F; gitti ama biz de bilmiyoruz&quot;);
+}
+finally{
+    Console.WriteLine(&quot;&#x130;yi g&#xFC;nler!&quot;)
+}
+</code></pre><h2 class="mume-header" id="conditional-operator">Conditional Operator</h2>
+
+<ul>
+<li>Conditional Operator: Bir &#x15F;art&#x131;n true/false olmas&#x131;na ba&#x11F;l&#x131; olarak atama yap&#x131;lacalsa kullan&#x131;l&#x131;r. &#x15E;art sa&#x11F;lan&#x131;rsa x yap&#x131;l&#x131;r, sa&#x11F;lanmazsa y yap&#x131;l&#x131;r.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>(condition) ? x : y
+</code></pre><ul>
+<li>If ve Conditional Operator&apos;&#xFC;n kar&#x15F;&#x131;la&#x15F;t&#x131;rmal&#x131; kullan&#x131;m&#x131;:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>double temperature = 20;
+String message;
+
+if(temperature &gt;= 15){
+    message = &quot;S&#x131;cak&quot;;
+}
+else{
+    message = &quot;So&#x11F;uk&quot;;
+}
+---
+
+message = (temperature &gt;= 15) ? &quot;S&#x131;cak&quot; : &quot;So&#x11F;uk&quot;;
+
+</code></pre><h2 class="mume-header" id="string-interpolation">String Interpolation</h2>
+
+<ul>
+<li>String sabitlerinin i&#xE7;erisine de&#x11F;i&#x15F;kenler atamam&#x131;z&#x131; sa&#x11F;lar. String ba&#x15F;lamadan &#xF6;nce konulan $ i&#x15F;areti ile kullan&#x131;l&#x131;r. Stringin i&#xE7;erisine de&#x11F;i&#x15F;kenin eklenece&#x11F;i k&#x131;s&#x131;mlarda de&#x11F;i&#x15F;ken ad&#x131; {} parantezlerinin i&#xE7;erisine al&#x131;narak yaz&#x131;l&#x131;r.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.WriteLine($&quot;Merhaba {isim}, bug&#xFC;n {yas} ya&#x15F;&#x131;ndas&#x131;n.&quot;);
+</code></pre><ul>
+<li>String Interpolation s&#x131;ras&#x131;nda de&#x11F;i&#x15F;ken isminden sonra virg&#xFC;l kullan&#x131;larak de&#x11F;i&#x15F;kenden sonra istenilen say&#x131;da bo&#x15F;luk b&#x131;rak&#x131;labilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Console.WriteLine($&quot;Merhaba {isim, 10}&quot;);
+//isimden &#xF6;nce 10 bo&#x15F;luk b&#x131;rak&#x131;l&#x131;r, isimden sonra bo&#x15F;luk b&#x131;rak&#x131;lmak istenirse &quot;-10&quot; yaz&#x131;larak yap&#x131;labilir.
+</code></pre><h2 class="mume-header" id="%C3%A7ok-boyutlu-dizilermatrisler">&#xC7;ok Boyutlu Diziler(Matrisler)</h2>
+
+<ul>
+<li>Yatay ve dikey olarak her y&#xF6;n 0 indexinden ba&#x15F;lar, her bir sat&#x131;r virg&#xFC;lle ayr&#x131;larak yaz&#x131;l&#x131;r.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>String[,] parkNo = {{&quot;1&quot;,&quot;2&quot;,&quot;3&quot;},
+                    {&quot;4&quot;,&quot;5&quot;,&quot;6&quot;},
+                    {&quot;7&quot;,&quot;8&quot;,&quot;9&quot;}
+                    };
+//B&#xF6;yle yaz&#x131;lmas&#x131;na gerek yoktu ancak okuma kolayl&#x131;&#x11F;&#x131; a&#xE7;&#x131;s&#x131;ndan tab kullanarak bu &#x15F;ekilde yazmak daha faydal&#x131;.
+//Herhangi bir index&apos;e ula&#x15F;mak i&#xE7;in:
+parkNo[0, 2] = 123;
+//3 de&#x11F;i&#x15F;kenini 123 yapt&#x131;k
+</code></pre><ul>
+<li>Bir multidimensional array&apos;i dizi gibi d&#xFC;zenli &#x15F;ekilde yazd&#x131;rmak istiyorsak <em>Nested Loop</em> kullan&#x131;r&#x131;z.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>for(int i = 0; i &lt; parkNo.GetLenght(0); i++){
+    for(int j = 0; j &lt; parkNo.GetLenght(1); j++){
+
+        Console.Write(parkNo[i, j] + &quot; &quot;);
+    }
+    Console.WriteLine();
+}
+// Burada GetLenght fonksiyonunun i&#xE7;erisindeki 0 sat&#x131;r&#x131;, 1 ise s&#xFC;tunu ifade eder
+/* Alaca&#x11F;&#x131;m&#x131;z &#xE7;&#x131;kt&#x131; &#x15F;&#xF6;yle olur:
+    1 2 3
+    4 5 6
+    7 8 9
+*/
+</code></pre><h2 class="mume-header" id="classlar">Class&apos;lar</h2>
+
+<ul>
+<li>Class&apos;lar birbiriyle ba&#x11F;lant&#x131;l&#x131; bir grup kodu depolamak i&#xE7;in kullan&#x131;l&#x131;r. &#xD6;rne&#x11F;in c#&apos;&#x131;n i&#xE7;erisinde yer alan Math class&apos;&#x131; bir&#xE7;ok farkl&#x131; matematiksel i&#x15F;lemi methodlar yard&#x131;m&#x131;yla &#xE7;&#xF6;zmeyi sa&#x11F;lar. (<em>&#xD6;rne&#x11F;in ba&#x15F;ka bir c# dosyas&#x131;nda tan&#x131;mlanan Mesajlar isimli bir Class olu&#x15F;turup bunu daha sonra farkl&#x131; bir c# dosyas&#x131;nda &#xE7;a&#x11F;&#x131;ral&#x131;m</em>)</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>//Class&apos;&#x131; olu&#x15F;turma:
+static class Mesajlar{
+    public static void Merhaba(){
+        Console.WriteLine(&quot;Merhaba! Ho&#x15F; geldin.&quot;);
+    }
+    public static void Bye(){
+        Console.WriteLine(&quot;Bye, tekrar bekleriz.&quot;);
+    }
+}
+//Main program&#x131; i&#xE7;inde kullanma:
+Mesajlar.Merhaba();
+Mesajlar.Bye();
+</code></pre><h2 class="mume-header" id="oop">OOP</h2>
+
+<ul>
+<li>Instance: Bir Class&apos;tan t&#xFC;retilen nesnedir. &#xD6;rne&#x11F;in:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Form1 frm = new Form1();
+// Burada frm nesnesi Form1 s&#x131;n&#x131;f&#x131;n&#x131;n instance&apos;&#x131;d&#x131;r.
+</code></pre><ul>
+<li>Bir Class, objelerin olu&#x15F;turulmas&#x131;nda blueprint g&#xF6;revi g&#xF6;rebilir.</li>
+<li>Objelerin field ve methodlar&#x131; yani karakteristik &#xF6;zellikleri ve aksiyonlar&#x131; olabilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>class Insan{
+    public String isim;
+    public int yas;
+
+    public void Ye(){
+        Console.WriteLine(isim + &quot;yemek yiyor&quot;)
+    }
+
+    public void Uyu(){
+        Console.WriteLine(isim + &quot;uyuyor&quot;)
+    }
+}
+ // Ba&#x15F;ka Class&apos;ta kullanacak olursak:
+class Program{
+    Insan yakisikli = new Insan();
+    yakisikli.isim = &quot;Kutay&quot;;
+    yakisikli.yas = 22;
+
+    yakisikli.Ye();
+    yakisikli.Uyu();
+}
+</code></pre><ul>
+<li>Field, objenin sahip oldu&#x11F;u &#xF6;zellikler; Method, objenin yapabildi&#x11F;i &#x15F;eylerdir.</li>
+<li>Class&apos;lar objelerin blueprint&apos;i olarak kullan&#x131;lan &#x15F;eylerdir.</li>
+</ul>
+<h2 class="mume-header" id="constructors">Constructors</h2>
+
+<ul>
+<li>Bir s&#x131;n&#x131;fta yer alan &#xF6;zel bir method. Class ad&#x131;yla ayn&#x131; ad&#x131; ta&#x15F;&#x131;r. Obje olu&#x15F;turulurken arg&#xFC;manlar&#x131; alanlara atamak i&#xE7;in kullan&#x131;labilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>class Insan{
+    public Insan(String isim, int yas){
+        this.isim = isim;
+        this.yas = yas;
+    }
+}
+
+class Program{
+    Insan insan1 = new Insan(&quot;Kutay&quot;, 22);
+}
+</code></pre><ul>
+<li>Static modifier: bir class&apos;taki &#xF6;zelliklerin o classtaki &#xF6;zel methodlar&#x131;n her biri i&#xE7;in de&#x11F;il de class&apos;a ait genel bir &#xF6;zellik olmas&#x131;n&#x131; sa&#x11F;lar.</li>
+<li>Static olan &#xF6;zellik Class&apos;a aittir. Objeler onu kendine alamaz.</li>
+<li>Overloaded constructor&apos;lar kullan&#x131;larak farkl&#x131; parametreler i&#xE7;eren benzer constructor&apos;lar olu&#x15F;turulabilir.</li>
+</ul>
+<h2 class="mume-header" id="inheritance">Inheritance</h2>
+
+<ul>
+<li>Class&apos;lar&#x131;n birbirlerine parent-child ili&#x15F;kileri sayesinde &#xF6;zellik aktarabilmesini sa&#x11F;lar.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>class Arac{
+    public int hiz = 0;
+
+    public void go(){
+        Console.WriteLine(&quot;Ara&#xE7; hareket ediyor.&quot;)
+    }
+}
+
+class Araba : Arac{
+    public int tekerler = 4;
+}
+class Bisiklet : Arac{
+    public int tekerler = 2;
+}
+
+Main{
+    Araba araba1 = new Araba();
+    Console.WriteLine(araba.hiz);
+    Console.WriteLine(araba.tekerler)
+    Araba.go();
+}
+
+// Araba ve bisikler Ara&#xE7; class&#x131;n&#x131;n child&apos;i oldu&#x11F;u i&#xE7;in her ikisinde de &quot;hiz&quot; de&#x11F;i&#x15F;keni vard&#x131;r ve her ikisi de go() methodunu kullanabilir.
+</code></pre><ul>
+<li>Bir class&apos;&#x131;n ba&#x15F;ka bir yerde 0&apos;dan bir obje olarak olu&#x15F;turulmas&#x131;n&#x131;n istenmedi&#x11F;i durumlarda (yukar&#x131;daki &#xF6;rnekte yer alan Arac class&apos;&#x131; gibi) <strong>Abstract Class</strong>&apos;lar kullan&#x131;l&#x131;r. Bu &#xF6;zelli&#x11F;i ta&#x15F;&#x131;yan class&apos;lar ba&#x15F;ka bir yerde generatelenemez. Bu program&#x131;n g&#xFC;venli&#x11F;ini artt&#x131;r&#x131;r.</li>
+<li>Property ve methodlar da Abstract &#xF6;zelli&#x11F;i ta&#x15F;&#x131;yabilir.</li>
+<li><strong>Objelerden dizi olu&#x15F;turmak:</strong> normalde diziler tan&#x131;mlan&#x131;rken &quot;String[]&quot; &#x15F;eklinde tan&#x131;mlanmaya ba&#x15F;lan&#x131;rd&#x131;. Objelerle bir dizi olu&#x15F;turulacaksa da bu objenin t&#xFC;r&#xFC; String&apos;in yerini al&#x131;r.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Araba[] garaj = new Araba[3];
+// Buradaki 3 dizinin boyutunu temsil eder.
+Araba araba1 = new Araba(&quot;Lamborghini&quot;)
+garaj[0] = araba1;
+</code></pre><h2 class="mume-header" id="method-overriding">Method Overriding</h2>
+
+<ul>
+<li>Parent Class&apos;ta tan&#x131;mlan&#x131;p, daha sonra Child Class&apos;ta tekrar tan&#x131;mlanan Methodlar; Child Class&apos;ta tekrar tan&#x131;mlanan &#xF6;zelli&#x11F;i g&#xF6;sterir. Ayn&#x131; methodun Child Class&apos;ta ayn&#x131; isimde, farkl&#x131; &#xF6;zellikleri olan bir Method ile tan&#x131;mlanmas&#x131; olay&#x131;na <em>Method Overriding</em> denir.</li>
+<li>Override yap&#x131;labilmesi i&#xE7;in <strong>miras al&#x131;nan</strong> Method&apos;un virtual, abstract veya halihaz&#x131;rda override yap&#x131;lm&#x131;&#x15F; olmas&#x131; laz&#x131;m.</li>
+<li><strong>Abstract method kullan&#x131;lacaksa class&apos;&#x131;n da abstract olmas&#x131; ve method&apos;un body&apos;sinin olmamas&#x131; laz&#x131;m.</strong></li>
+<li>kullan&#x131;l&#x131;&#x15F;&#x131;: <em>public override void ...</em></li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>class Animal{
+    public virtual void Speak(){
+        Console.WriteLine(&quot;Hayvan brr der&quot;)
+    }
+}
+class Dog : Animal{
+    public override void Speak(){
+        Console.WriteLine(&quot;K&#xF6;pek hav hav der&quot;)
+    }
+}
+class Cat : Animal{
+    public override void Speak(){
+        Console.WriteLine(&quot;Kedi miyav der&quot;)
+    }
+}
+</code></pre><ul>
+<li>Method Overriding genelde <em>ToString()</em> methoduyla ve polymorphism ile birlikte kullan&#x131;l&#x131;r.</li>
+</ul>
+<h2 class="mume-header" id="tostring-methodu">ToString() Methodu</h2>
+
+<ul>
+<li>Objects methodundan kal&#x131;t&#x131;lm&#x131;&#x15F; bir &#xF6;zelliktir.</li>
+<li>Bir objenin g&#xF6;r&#xFC;nt&#xFC;lenmeye uygun olmas&#x131; i&#xE7;in onu String g&#xF6;sterimine &#xE7;evirir.</li>
+<li>ToString() methodu normalde namespace&apos;i ve &#xE7;al&#x131;&#x15F;&#x131;lan objeyi &#xE7;&#x131;kt&#x131; olarak verir fakat override yaparak daha g&#xFC;zel bir String &#xE7;&#x131;kt&#x131;s&#x131; al&#x131;nabilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>main(){
+    Console.WriteLine(Araba.ToString());
+}
+public override string ToString(){
+    return &quot;Bu &quot; + yil + &quot; model bir araba&quot;
+}
+</code></pre><ul>
+<li>Polymorphism&apos;de objeler birden fazla tiple tan&#x131;mlanabilir.</li>
+</ul>
+<h2 class="mume-header" id="interface">Interface</h2>
+
+<ul>
+<li>&#x130;lgili class&apos;tan miras alan t&#xFC;m di&#x11F;er class&apos;lar&#x131;n uymas&#x131; gereken birtak&#x131;m &quot;contract&quot;ler tan&#x131;mlar.</li>
+<li>Method&apos;lar IMehmet IAhmet gibi ba&#x15F;&#x131;na &quot;I&quot; konularak isimlendirillir.</li>
+<li>Method&apos;lar tan&#x131;mlan&#x131;r ancak tan&#x131;mland&#x131;&#x11F;&#x131; yerde implement edilmez. Onu &#xE7;a&#x11F;&#x131;ran class&apos;ta implement edilir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>main{
+    Hawk kartal = new Hawk();
+    kartal.Hunt();
+}
+interface IPredator{
+    void Hunt();
+}
+class Hawk : IPredator{
+    public void Hunt(){
+        Console.WriteLine(&quot;Kartal avlan&#x131;yor&quot;)
+    }
+}
+// Bir class 1den farkl&#x131; class&apos;tan miras alabilir. &#xF6;rne&#x11F;in bir bal&#x131;k hem av hem de avc&#x131;d&#x131;r. Bu durumda ilgili class tan&#x131;mlan&#x131;rken miras alaca&#x11F;&#x131; class&apos;lar virg&#xFC;lle ayr&#x131;larak tan&#x131;mlan&#x131;r.
+class Fish : IPredator, IPrey{
+    public void Flee(){
+        ...
+    }
+    public void Hunt(){
+        ...
+    }
+}
+</code></pre><ul>
+<li><strong>Interface, class&apos;&#x131;n sahip olmas&#x131; gereken &#xF6;zellikleri belirler.</strong></li>
+<li><strong>Miras alan class, interface&apos;den ald&#x131;&#x11F;&#x131; &#xF6;zellikleri nas&#x131;l kullanaca&#x11F;&#x131;n&#x131; belirler.</strong></li>
+</ul>
+<h2 class="mume-header" id="lists">Lists</h2>
+
+<ul>
+<li>Array&apos;ler dinamik olarak boyut de&#x11F;i&#x15F;tiremezken listelerin boyutu tan&#x131;mland&#x131;ktan sonra da de&#x11F;i&#x15F;tirilebilir.</li>
+<li>Kullan&#x131;laca&#x11F;&#x131; zaman <em>using System.Collections.Generic;</em> ile ilgili k&#xFC;t&#xFC;phane eklenir.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>List&lt;String&gt; hayvanlar = new List&lt;String&gt;();
+
+hayvanlar.Add(&quot;k&#xF6;pek&quot;);
+hayvanlar.Add(&quot;kedi&quot;);
+//bir indexe ula&#x15F;mak
+Console.WriteLine(hayvanlar[0]); //k&#xF6;pek &#xE7;&#x131;kt&#x131;s&#x131; ald&#x131;k
+//bir item&apos;&#x131; &#xE7;&#x131;karmak
+hayvanlar.Remove(&quot;k&#xF6;pek&quot;);
+//bir item&apos;&#x131; &#xF6;zel bir konuma eklemek
+hayvanlar.Insert(0, &quot;mamut&quot;);
+//list boyutunu g&#xF6;rmek
+hayvanlar.Count;
+//bir item&apos;&#x131;n index numaras&#x131;n&#x131; bulmak
+Console.WriteLine(food.IndexOf(&quot;kedi&quot;));
+//bir item&apos;&#x131;n listede olup olmad&#x131;&#x11F;&#x131;n&#x131; veren bool method
+hayvanlar.Contains(&quot;mamut&quot;);// True/False &#xE7;&#x131;kt&#x131; verir
+//list&apos;i alfabetik s&#x131;ralamak
+hayvanlar.Sort();
+//list&apos;i ters s&#x131;ralamak
+hayvanlar.Reverse();
+//list&apos;i temizlemek
+hayvanlar.Clear();
+//list&apos;i array&apos;a &#xE7;evirmek
+String [] hayvanlarArray = hayvanlar.ToArray();
+//list&apos;e obje eklemek
+List&lt;Hayvan&gt; hayvanlar = new List&lt;Hayvan&gt;();
+</code></pre><h2 class="mume-header" id="getters-setters">Getters &amp; Setters</h2>
+
+<ul>
+<li>Encapsulation yard&#x131;m&#x131;yla g&#xFC;venli&#x11F;i artt&#x131;ran eri&#x15F;im methodlar&#x131;d&#x131;r.</li>
+<li>Property: Fieldlar ve methodlar&#x131;n &#xF6;zelliklerini birlikte kullanmay&#x131; sa&#x11F;larlar. &#x130;lgili field&apos;la ayn&#x131; ad&#x131; ta&#x15F;&#x131;rlar. Tek fark&#x131; ilk harfinin b&#xFC;y&#xFC;k olmas&#x131;d&#x131;r.</li>
+<li>get accessor: property&apos;nin de&#x11F;erini almay&#x131; sa&#x11F;lar.</li>
+<li>set accessor: property&apos;nin de&#x11F;erini de&#x11F;i&#x15F;tirmeyi sa&#x11F;lar.</li>
+<li>value: set accessor&apos;unun atama yapaca&#x11F;&#x131; de&#x11F;er</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>class Car{
+    private int speed;
+    public Car(int speed){
+        Speed = speed;
+    }
+    public int Speed{
+        get {return speed; }//oku
+        set {//yaz
+            speed = value;//buraya ko&#x15F;ullar vs de yaz&#x131;labilir
+          }
+    }
+}
+// Auto-Implemented propertyler ile pratik bir &#x15F;ekilde get/set ili&#x15F;kisi olu&#x15F;turulabilir.
+public String Model { get; set; }
+</code></pre><h2 class="mume-header" id="generics">Generics</h2>
+
+<ul>
+<li>Generic: &#xD6;zel bir data tipine ait olmayan</li>
+<li><strong>Class, Method, Field vs.yi tan&#x131;mlarken <t> ekleyerek ilgili &#x15F;eyin farkl&#x131; data tiplerinde(int, double, string vs.) kullan&#x131;labilmesini sa&#x11F;lars&#x131;n</t></strong></li>
+<li><em><t> yerine bu &lt;&gt; parantezler i&#xE7;ine ba&#x15F;ka bir &#x15F;ey de yaz&#x131;labilir</t></em></li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>public static void ElementleriGoster&lt;T&gt;(T[] array){
+
+}
+</code></pre><h2 class="mume-header" id="multithreading">Multithreading</h2>
+
+<ul>
+<li>Thread: bir program&#x131;n execution path&apos;i. Ayn&#x131; ortamda birden fazla i&#x15F; yap&#x131;ld&#x131;&#x11F;&#x131;nda her i&#x15F; bir iplikteymi&#x15F; gibi s&#x131;rayla i&#x15F;lemciye gider.</li>
+<li>Uygulamalarda ayn&#x131; anda birden fazla thread kullan&#x131;labilir.</li>
+<li><strong>using System.Threading</strong> ile eklenir.</li>
+<li>10&apos;dan geriye sayan saya&#xE7; yapma:</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>public static void CountDown(){
+    for (int i = 10; i &gt;= 0; i--){
+        Console.WriteLine(&quot;Timer:&quot; + i)
+        Thread.Sleep(1000);
+        //1000 ms = 1 s
+    }
+}
+</code></pre><ul>
+<li>Ayn&#x131; anda birden fazla saya&#xE7; yap&#x131;lmak isteniyorsa multithreading kullan&#x131;l&#x131;r.</li>
+</ul>
+<pre data-role="codeBlock" data-info="c#" class="language-c#"><code>Thread thread1 = new Thread(() =&gt; CountDown(&quot;Timer 1:&quot;));
+Thread thread2 = new Thread(() =&gt; CountDown(&quot;Timer 2:&quot;));
+</code></pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
